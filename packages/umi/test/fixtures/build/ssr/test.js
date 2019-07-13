@@ -28,7 +28,9 @@ const getServerRender = async (url) => {
 export default async function ({ page, host }) {
 
   const ssrFile = join(__dirname, 'dist', 'umi.server.js');
+  const manifestFile = join(__dirname, 'dist', 'ssr-client-mainifest.json');
   expect(existsSync(ssrFile)).toBeTruthy();
+  expect(existsSync(manifestFile)).toBeTruthy();
 
   const { ssrHtml, ssrHtmlElement } = await getServerRender('/');
 
